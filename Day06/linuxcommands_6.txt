@@ -1,0 +1,249 @@
+(01)Get the calendar and date
+
+[dilki@DESKTOP-JDQG16N ~]$ cal  # Displays the calendar of the current month
+     April 2025
+Su Mo Tu We Th Fr Sa
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30
+
+[dilki@DESKTOP-JDQG16N ~]$ date +%d  # Displays current day of the month (only date)
+29
+[dilki@DESKTOP-JDQG16N ~]$ date  # Displays full date and time information
+Tue Apr 29 07:49:59 PDT 2025
+
+
+(02)Get the student name and marks for the 3 subjects from user then calculate the total and average.
+Output:
+Enter the name:Isuru
+Enter the marks for subject 1:80
+Enter the marks for subject 2:85
+Enter the marks for subject 3:90
+Total:255
+Average:85
+
+[dilki@DESKTOP-JDQG16N ~]$ vi question2.sh     # Edit question2.sh file
+
+echo "Enter your name:"                   # Prompt the user to enter their name
+read name                                 # Read and store the name                
+echo "Enter the marks for subject1:"      # Prompt for subject 1 mark 
+read sub1                                 # Read subject 1 mark
+echo "Enter the marks for subject2:"      # Prompt for subject 2 mark
+read sub2                                 # Read subject 2 mark
+echo "Enter the marks for subject3:"      # Prompt for subject 3 mark
+read sub3                                 # Read subject 3 mark
+total=$((sub1+sub2+sub3))                 # Calculate total
+average=$((total/3))                      # Calculate average
+echo "Total:$total"                       # Display total 
+echo "Average:$average"                   # Display average
+
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 question2.sh  # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./question2.sh          # Get the result
+
+Output:
+
+Enter your name:
+Isuru
+Enter the marks for subject1:
+80
+Enter the marks for subject2:
+85
+Enter the marks for subject3:
+90
+Total:255
+Average:85
+
+
+(03)Create calculator with arithmetic operators
+Output:
+Enter the first number:4
+Enter the second number:2
+Summation:6
+Subtraction:2
+Division:2
+Multiplication:8
+
+[dilki@DESKTOP-JDQG16N ~]$ vi calculator.sh   # Edit calculator.sh
+
+echo "Enter the first number:"         # Prompt user to enter te first number
+read num1                              # Read and store first number
+echo "Enter the second number:"        # Prompt user to enter the second number
+read num2                              # Read and store second number
+sum=$((num1+num2))                     # Summation
+sub=$((num1-num2))                     # Subtraction
+div=$((num1/num2))                     # Division
+mul=$((num1*num2))                     # Multiplication
+echo "Summation:$sum"                  # Display Summation
+echo "Subtraction:$sub"                # Display Subtraction
+echo "Division:$div"                   # Display Division
+echo "Multiplication:$mul"             # Display Multiplication
+
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 calculator.sh  # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./calculator.sh          # Get the result
+
+Output:
+Enter the first number:
+4
+Enter the second number:
+2
+Summation:6
+Subtraction:2
+Division:2
+Multiplication:8
+
+
+(04)Get the days based on the user input number
+Output:
+Enter the number:5
+Friday
+
+[dilki@DESKTOP-JDQG16N ~]$ touch question4.sh   # Create the question4.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi question4.sh      # Edit the question4.sh file
+
+echo "Enter the number:"                   # Prompt usert to enter a number
+read num                                   # Read and store that number
+case $num in                               # Use case to determine the day
+  1) echo "Monday" ;;
+  2) echo "Tuesday" ;;
+  3) echo "Wednesday" ;;
+  4) echo "Thursday" ;;
+  5) echo "Friday" ;;
+  6) echo "Saturday" ;;
+  7) echo "Sunday" ;;
+  *) echo "Invalid input! Please enter a number between 1 and 7." ;;
+esac
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 question4.sh  # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./question4.sh          # Get the result
+
+Output:
+Enter the number:
+5
+Friday
+
+
+(05)Verify whether your username is correct or not.(Use your name as incorrect username )
+Output:
+Enter username:
+Mino
+Username is correct
+Enter username:
+Punya
+Username is incorrect
+
+[dilki@DESKTOP-JDQG16N ~]$ touch que5.sh   # Create que5.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi que5.sh      # Edit que5.sh file
+
+username="Mino"                         # Predefined correct username
+echo "Enter the user name:"             # Prompt usert to enter the username
+read name                               # Read entered username
+
+# Check if entered username matches
+
+if [[ "$username" != "$name" ]]; then
+    echo "User name is incorrect"
+else
+    echo "User name is correct"
+fi
+
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 que5.sh   # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./que5.sh           # Get the result
+
+Output:
+
+Enter the user name:
+nishagee
+User name is incorrect
+
+
+(06)Output: 
+Enter two numbers:
+7 5 
+7 is greater than 5
+
+Enter two numbers:
+1 9
+1 is less than 9
+
+[dilki@DESKTOP-JDQG16N ~]$ touch question6.sh  # Create question6.sh
+[dilki@DESKTOP-JDQG16N ~]$ vi question6.sh     # Edit question6.sh
+
+echo "Enter two numbers:"                # Promt user to enter numbers
+read num1                                # Read number1
+read num2                                # Read number2
+
+# Check which number is greater
+
+if [ "$num1" -gt "$num2" ]; then
+    echo "$num1 is greater than $num2"
+else
+    echo "$num2 is greater than $num1"
+fi
+
+# Check which number is less
+
+if [ "$num1" -lt "$num2" ]; then
+    echo "$num1 is less than $num2"
+else
+    echo "$num2 is less than $num1"
+fi
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 question6.sh  # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./question6.sh          # Get the result
+
+Output:
+
+Enter two numbers:
+7
+5
+7 is greater than 5
+
+[dilki@DESKTOP-JDQG16N ~]$ ./question6.sh
+Enter two numbers:
+1
+9
+9 is greater than 1
+1 is less than 9
+
+
+(07)Create simple calculator using "expr" command same as the Question03
+
+[dilki@DESKTOP-JDQG16N ~]$ touch calculator_expr.sh
+[dilki@DESKTOP-JDQG16N ~]$ vi calculator_expr.sh
+
+echo "Enter the first number:"
+read num1                          # Read first number
+
+echo "Enter the second number:"
+read num2                          # Read second number
+
+# Use expr for arithmetic operations
+sum=$(expr $num1 + $num2)                       
+sub=$(expr $num1 - $num2)  
+div=$(expr $num1 / $num2)  
+mul=$(expr $num1 * $num2)  
+
+# Display results
+echo "Summation:$sum"
+echo "Subtraction:$sub"
+echo "Division:$div"
+echo "Multiplication:$mul"
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 calculator_expr.sh  # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./calculator_expr.sh          # Get the result
+
+Output:
+
+Enter the first number:
+4
+Enter the second number:
+2
+Summation:6
+Subtraction:2
+Division:2
+Multiplication:8
