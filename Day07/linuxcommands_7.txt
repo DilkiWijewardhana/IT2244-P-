@@ -1,0 +1,333 @@
+(01)Write a code for small astrology based on your life path number for that 
+get date of birth from user then calculate life path number.(Use switch case)
+
+Example:
+Calculation for life path number:
+a=date%10
+b=date/10
+c=a+b
+
+if life path number:
+1:Lucky
+2:Careful do your work
+3:Storager
+4:Happy
+5:Can get help
+6:Doubt
+7:Sad
+8:Like
+9:Courage
+
+Code:
+[dilki@DESKTOP-JDQG16N ~]$ touch astro.sh  # Create astro.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi astro.sh     # Edit astro.sh file
+
+echo 'Enter your birth date: '        # Prompt user to enter date of birth
+read date                             # Read and store the date
+
+# Get the sum of digits 
+a=$(($date%10))                       # Get the last digit of the date
+b=$(($date/10))                       # Get the first digit(s) 
+c=$(($a+$b))                          # Sum the digits
+
+# Use case to give the message according to number
+case $c in
+1)echo "Lucky";;
+2)echo "Carefuly do your work";;
+3)echo "Storger";;
+4)echo "Happy";;
+5)echo "Can get help";;
+6)echo "Doubt";;
+7)echo "Sad";;
+8)echo "Like";;
+9)echo "Courage";;
+*)
+
+# If result is greater than 9, reduce again by summing digit
+x=$(($c%10))              # Last digit
+y=$(($c/10))              # Remaining digit(s)
+z=$(($x+$y))              # Sum digits again
+
+# Use case to give the message according to number
+case $z in
+1)echo "Lucky";;
+2)echo "Carefuly do your work";;
+3)echo "Storger";;
+4)echo "Happy";;
+5)echo "Can get help";;
+6)echo "Doubt";;
+7)echo "Sad";;
+8)echo "Like";;
+9)echo "Courage";;
+*)echo "Try again!";;
+esac;;
+
+esac
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 astro.sh   # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./astro.sh           # Get the output
+
+Output:
+Enter your birth date:
+15
+Doubt
+[dilki@DESKTOP-JDQG16N ~]$ ./astro.sh
+Enter your birth date:
+4
+Happy
+
+################################################
+//Syntax for for loop:                         
+                                               
+for varible in list                            
+    do 
+        commands
+	done
+
+################################################	
+//Syntax for while loop:
+
+while [ condition ]
+    do
+	    commands
+	done
+################################################
+
+################################################	
+//Syntax for nested for loop:
+
+for((variable=0; variable<=input;variable++))
+ do
+  for((variable=0; variable<=input;variable++))
+   do
+    commands
+   done
+ done
+################################################
+
+(02)Give list of numbers then calculate the summation and multiplication using for loop.
+Example:
+1 2 3 4 5 
+Summation:15
+Multiplication:120
+
+[dilki@DESKTOP-JDQG16N ~]$ touch q2.sh   # Create q2.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi q2.sh      # Edit q2.sh file
+
+sum=0;                     # Initialize sum to 0
+mul=1;                     # Initialize multiplication to 1
+
+# Loop through numbers
+for num in 1 2 3 4 5     
+do
+sum=$((sum+num))         # Add number to sum
+mul=$((mul*num))         # Multiply number to mul
+done
+
+#Display summation and multiplication
+echo "Summation:$sum"
+echo "Multiplication:$mul"
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 q2.sh   # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./q2.sh           # Get the output
+
+Output:
+Summation:15
+Multiplication:120
+
+(03)Print the integers from 1 to 10 using while loop.
+
+[dilki@DESKTOP-JDQG16N ~]$ touch q3.sh    # Create q3.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi q3.sh       # Edit q3.sh file
+
+i=1                    # Initialize counter
+
+# While loop from 1 to 10
+while [ $i -le 10 ]    
+do
+echo $i              # Print current value
+i=$(($i+1))          # Increment counter
+done
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 q3.sh   # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./q3.sh           # Get the output
+
+Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+(04)Print the below patterns using nested loop.
+columns=7 and rows=7
+(I)
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+
+(II)
+* * * * * * *
+* * * * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+(III)
+1
+2 2
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 5 
+6 6 6 6 6 6 6
+
+(IV)
+1
+1 2 
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+
+(V) 
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+[dilki@DESKTOP-JDQG16N ~]$ touch q4.sh  # Create q4.sh file
+[dilki@DESKTOP-JDQG16N ~]$ vi q4.sh     # Edit q4.sh file
+
+# Ask user to input number of rows and columns
+echo 'Enter number of Rows: '      
+read rows
+echo 'Enter number of Columns: '
+read cols
+
+# (I) Increasing triangle pattern
+for ((i=1; i<=rows; i++))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n '* '            # Print star in same line
+done
+echo ''                 # Move to next line
+done
+
+echo " "
+
+
+# (II) Decreasing triangle pattern
+for ((i=1; i<=rows; i++))
+do
+for ((j=cols+1; j>i; j--))
+do
+echo -n '* '          
+done
+echo ''              
+done
+
+echo " "
+
+
+# (III) Same number repeated in each row
+for ((i=1; i<=rows; i++))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n $i " "      
+done
+echo ''
+done
+
+echo " "
+
+# (IV) Increasing number sequence in each row
+for ((i=1; i<=rows; i++))
+do
+for ((j=1; j<=i; j++))
+do
+echo -n $j " "     
+done
+echo ''
+done
+
+echo " "
+
+# (V) Pyramid pattern
+for ((i=1; i<=rows; i++))
+do
+    for ((k=1; k<=rows-i; k++))
+    do
+        echo -n " "    # Print spaces to align stars
+    done
+
+    for ((j=1; j<=i; j++))
+    do
+        echo -n "* "   # Print stars
+    done
+
+    echo ""
+done
+
+
+[dilki@DESKTOP-JDQG16N ~]$ chmod 777 q4.sh   # Set the permission
+[dilki@DESKTOP-JDQG16N ~]$ ./q4.sh           # Get the output
+
+Output:
+Enter number of Rows:
+7
+Enter number of Columns:
+7
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+
+* * * * * * *
+* * * * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+1
+2  2
+3  3  3
+4  4  4  4
+5  5  5  5  5
+6  6  6  6  6  6
+7  7  7  7  7  7  7
+
+1
+1  2
+1  2  3
+1  2  3  4
+1  2  3  4  5
+1  2  3  4  5  6
+1  2  3  4  5  6  7
+
+      *
+     * *
+    * * *
+   * * * *
+  * * * * *
+ * * * * * *
+* * * * * * *
