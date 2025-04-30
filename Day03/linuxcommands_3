@@ -1,0 +1,73 @@
+touch xyz.csv //create xyz.csv file
+vi xyz.csv //used to enter data into file
+
+//after entering vi command press the "i" key.
+//then can enter data in terminal window(can use commas,tab to separate data from each)
+//after entering all data press ctrl+c then :wq! (to exit editing)
+
+more xyz.csv //view the data in xyz.csv file
+awk -F ',' '{print $1}' xyz.csv //print only 1st column data
+awk -F ',' '{print NF; exit}' xyz.csv //get the number of columns
+cut -d ',' -f 1 xyz.csv //cut 1st column and show it
+head -n3 xyz.csv | tail -n1  //give the 3rd row data
+head -n7 xyz.csv | grep '11' //give the rows that contain '11' (-n7 is the number of rows in file)
+
+//tab separeted file
+touch lmn.csv //create lmn.csv file
+vi lmn.csv //used to enter data into file
+
+//after entering vi command press the "i" key.
+//then can enter data in terminal window(can use commas,tab to separate data from each)
+//after entering all data press ctrl+c then :wq! (to exit editing)
+
+more lmn.csv //view the data in lmn.csv file
+cut -d $'\t' -f1 lmn.csv //cut and show 1st column in tab separated file
+head -n3 lmn.csv | tail -n1  //give the 3rd row data
+awk -F '\t' '{print NF; exit}' lmn.csv //display the number of columns in tab separated file
+head -n6 lmn.csv | grep '56' //give the rows that contain '56' (-n5 is the number of rows in file)
+exit //exit from the terminal window
+
+
+Output Code:
+
+[dilki@DESKTOP-JDQG16N ~]$ touch xyz.csv
+[dilki@DESKTOP-JDQG16N ~]$ vi xyz.csv
+[dilki@DESKTOP-JDQG16N ~]$ awk -F ',' '{print $1}' xyz.csv
+11
+21
+31
+41
+51
+61
+34
+[dilki@DESKTOP-JDQG16N ~]$ awk -F ',' '{print NF; exit}' xyz.csv
+5
+[dilki@DESKTOP-JDQG16N ~]$ cut -d ',' -f 1 xyz.csv
+11
+21
+31
+41
+51
+61
+34
+[dilki@DESKTOP-JDQG16N ~]$ head -n3 xyz.csv | tail -n1
+31,32,33,34,35
+[dilki@DESKTOP-JDQG16N ~]$ head -n7 xyz.csv | grep '11'
+11,12,13,14,15
+34,67,11,89,11
+[dilki@DESKTOP-JDQG16N ~]$ touch lmn.csv
+[dilki@DESKTOP-JDQG16N ~]$ vi lmn.csv
+[dilki@DESKTOP-JDQG16N ~]$ more lmn.csv
+12      67      89
+34      56      89
+23      45      67
+66      88      99
+33      55      44
+56      78      12
+[dilki@DESKTOP-JDQG16N ~]$ head -n3 lmn.csv | tail -n1
+23      45      67
+[dilki@DESKTOP-JDQG16N ~]$ awk -F '\t' '{print NF; exit}' lmn.csv
+1
+[dilki@DESKTOP-JDQG16N ~]$ head -n6 lmn.csv | grep '56'
+34      56      89
+56      78      12
