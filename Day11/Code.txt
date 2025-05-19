@@ -1,0 +1,54 @@
+::Question 01
+cd %USERPROFILE%\Desktop
+mkdir CSC2244 Marks Exam
+ 
+cd CSC2244
+mkdir practical theory "exam papers"
+
+cd Practical
+ echo. > practical.docx
+ echo. > practical.pptx
+ 
+cd..\theory
+echo Theory Text > theory.txt
+echo. > theory.docx
+echo. > theory.pptx
+
+cd "..\exam papers"
+echo Exam Text > exam.txt
+echo. > exam.docx
+echo. > exam.pptx
+
+cd %USERPROFILE%\Desktop
+
+echo. > "Icae MArks.xlsx"
+echo. > "Final Exam Marks.xlsx"
+
+move "Icae MArks.xlsx"
+move "Final Exam Marks.xlsx"
+
+xcopy /E /I Marks Exam\Marks
+attri +h Exam 
+
+Question 02:
+awk -F, 'NR==1 || $4 > 3.5' Data.csv
+
+awk -F, 'NR>1 {sum+=$4; count++} END {if (count > 0) print "Average GPA: ", sum/count}' Data.csv
+
+Question 03:
+
+echo "Enter String_1: " 
+read str1
+echo "Enter String_2: " 
+read str2
+
+length1=${#str1}
+length2=${#str2}
+
+if [ $length1 -gt $length2 ]; then
+	echo "$str1 is larger than $str2"
+elif [ $length2 -gt $length1 ]; then
+	echo "$str2 is larger than $str1"
+else
+	echo "Both are same...!"
+fi
