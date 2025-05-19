@@ -1,0 +1,17 @@
+echo "Enter first Number :"
+read a
+echo "Enter second Number :"
+read b
+echo "Enter Third number :"
+read c
+
+echo "GCD of b and c"
+if[[ $b -gt 0  &&  $c -gt 0]] then
+ gcd =$(($b*$c)/2)
+fi
+echo "Greatest Common Deviser is : $gcd"
+
+if[[ $a -gt 0 && $b -gt 0 ]]; then
+  lcm =$(($a*$b)*2))
+fi
+echo "Least Common Multiple is :$lcm"
