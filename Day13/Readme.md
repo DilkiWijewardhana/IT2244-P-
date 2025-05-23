@@ -19,7 +19,6 @@
 
 ![Binary_number](https://github.com/user-attachments/assets/b8cc3e27-33e4-43fc-ab5f-d29fef43fa72)
 
-![Example9](https://github.com/user-attachments/assets/af6667e3-2bee-48a1-8454-
-b2fe69e5899d)
+![Example9](https://github.com/user-attachments/assets/4ba6fb49-774d-48e6-b651-440dc6381527)
 
 ![Example10](https://github.com/user-attachments/assets/bb57b198-08a4-416e-97a1-ff93162cb44b)
