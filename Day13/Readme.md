@@ -16,3 +16,10 @@
 ![Factorial](https://github.com/user-attachments/assets/9996b873-ff10-4643-bebb-fbf620e64153)
 
 ![Example7](https://github.com/user-attachments/assets/376e5be7-33f3-49ae-91de-eddb93ad236e)
+
+![Binary_number](https://github.com/user-attachments/assets/b8cc3e27-33e4-43fc-ab5f-d29fef43fa72)
+
+![Example9](https://github.com/user-attachments/assets/af6667e3-2bee-48a1-8454-
+b2fe69e5899d)
+
+![Example10](https://github.com/user-attachments/assets/bb57b198-08a4-416e-97a1-ff93162cb44b)
